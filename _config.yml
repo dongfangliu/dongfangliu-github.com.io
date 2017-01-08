@@ -67,5 +67,5 @@ theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type:
+deploy:https://github.com/dongfangliu/dongfangliu.github.com.io.git
+  type:github

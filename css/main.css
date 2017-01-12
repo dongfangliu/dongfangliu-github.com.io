@@ -1,3 +1,34 @@
+.showtime_title{
+        padding-top: 3px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        font-family: "Microsoft YaHei",微软雅黑,sans-serif;
+        font-size: large;
+        color:#ffffff;
+        background:#4876FF;
+        height:30px;
+        width: 102px;
+        text-align: center;
+}
+.showtime_content{
+        padding-top: 8px;
+        border-style:solid outset;
+        border-color: #6d9bb4;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        font-family: "Microsoft YaHei",微软雅黑,sans-serif;
+        font-size: x-large;
+        background:#ffffff;
+        color:#4876FF;
+        height:52px;
+        width: 96px;
+        text-align: center;
+}
+.display_inline{
+        display: inline-block;
+        margin: 20px 20px 20px 20px;
+}
+
 /* normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif; /* 1 */
@@ -1686,7 +1717,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0b4d3d;
+  background: #015bff;
 }
 .links-of-blogroll {
   font-size: 13px;

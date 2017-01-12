@@ -248,6 +248,642 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/12/班车时刻表/show_time/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Dong">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/doge.jpeg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Dong's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Dong's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/12/班车时刻表/show_time/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-12T20:09:16+00:00">
+                2017-01-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/12/班车时刻表/show_time/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/12/班车时刻表/show_time/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            /**
+ * Created by root on 11/01/17.
+ */
+
+var hour0 = [06,07,07,08,08,08,09,09,10,11,12,13,14,15,15,15,16,16,16,17,17,17,18,18,18,19];
+var min0 =  [55,20,40,00,20,40,00,20,00,00,00,00,00,00,20,40,00,20,40,00,20,40,01,20,40,00];
+var hour1 = [07,07,08,08,08,09,09,09,10,11,12,13,14,15,15,16,16,16,17,17,17,18,18,18,19,19];
+var min1 =  [15,40,00,20,40,00,20,40,20,20,20,20,20,20,40,00,20,40,00,20,40,01,21,40,00,20];
+var hour2 =   [06,07,08,09,10,11,12,13,14,15,15,16,17,17,18,19];
+var min2 =    [55,50,40,20,00,00,00,00,00,00,40,20,00,40,20,00];
+var hour3 =    [07,08,09,09,10,11,12,13,14,15,16,16,17,18,18,19];
+var min3 =    [15,10,00,40,20,20,20,20,20,20,00,40,20,01,40,20];
+var hour4 = [09,10,11,12,13,14,15,16,17,17,18,19,];
+var min4 = [25,25,05,25,25,25,25,25,15,45,45,40,];
+var hour5 = [07,07,08,09,10,11,12,13,14,15,];
+var min5 = [30,40,30,45,45,25,45,45,45,45,];
+var hour6 = [09,11,17,17,];
+var min6 = [15,00,00,30,];
+var hour7 = [08,09,11,];
+var min7 = [30,30,15,];
+var HourList = [hour0,hour1,hour2,hour3,hour4,hour5,hour6,hour7];
+var MinList = [min0,min1,min2,min3,min4,min5,min6,min7];
+function  get_static_Dates(hourlist ,minlist,curr_date) {
+    var Dates = new Array(hourlist.length);
+    for(var i = 0 ; i <hourlist.length ;i++){="" dates[i]="new" array(hourlist[i].length);="" for(var="" j="0" ;="" j<hourlist[i].length;j++){="" dates[i][j]="new" date(curr_date.getutcfullyear(),curr_date.getutcmonth(),curr_date.getdate(),hourlist[i][j],minlist[i][j],0);="" }="" return="" dates;="" function="" get_diff_time(dates,curr_date)="" {="" 以下需要持续刷新并部署到网页上="" var="" differ_time_put="new" array(dates.length);="" a="0" <dates.length="" ;a++){="" b="0" b<dates[a].length;b++){="" data="Dates[a][b].getTime()" -="" curr_date.gettime();="" if(data=""> 0){  //此刻尚有班车可等
+                var leave1=data%(24*3600*1000);
+                var hour = Math.floor(leave1/(3600*1000));
+                var leave2 = leave1%(3600*1000);
+                var minute = Math.floor(leave2/(60*1000));
+                var leave3 = leave2%(60*1000);
+                var second = Math.round(leave3/1000);
+                differ_time_put[a] = [hour, minute, second];
+                break;
+            }else{ //此刻无班车可等
+                if(b ==Dates[a].length-1){
+                    differ_time_put[a] = "已停运.";
+                }
+            }
+        }
+    }
+    return differ_time_put;
+}
+
+function  update_times() {
+    var curr_date = new Date();
+    var static_dates = get_static_Dates(HourList,MinList,curr_date); // 这一天的标准时刻表
+    var diff_time = get_diff_time(static_dates, curr_date);
+    var display_time = new Array(4);
+    if(curr_date.getDay()<6 &&="" curr_date.getday()="">0){
+        display_time = [diff_time[0],diff_time[1],diff_time[4],diff_time[5]];
+    }else{
+        display_time = [diff_time[2],diff_time[3],diff_time[6],diff_time[7]];
+    }
+    for (var i = 0; i < display_time.length; i++) {
+        var id = "content" + i;
+        var elem = document.getElementById(id);
+        if (typeof elem !== 'undefined' && elem !== null) {
+            var output;
+            if (display_time[i].length == 3) {
+                if (display_time[i][0] != 0) {
+                    output = display_time[i][0] + ":" + display_time[i][1] + ":" + display_time[i][2];
+                } else {
+                    output = display_time[i][1] + ":" + display_time[i][2];
+                }
+            } else {
+                output = display_time[i];
+            }
+            document.getElementById(id).innerHTML = output;
+        }
+        // var maxwidth = elem.width-4;
+        // while(elem.style.fontSize
+    }
+}
+function setTimetitles() {
+    var hints= ["学校-金科路","金科路-学校","学校-张江","张江-学校"];
+    var setted = "";
+    for (var i = 0; i < hints.length; i++) {
+        var id = "title" + i;
+        var elem = document.getElementById(id);
+        if(typeof elem !== 'undefined' && elem !== null) {
+            document.getElementById(id).innerHTML= hints[i];
+            setted+="1";
+        }else{
+            setted+="0";
+        }
+    }
+    if(setted!="1111"){
+        setTimeout(setTimetitles(),200);
+    }
+
+}
+setTimetitles();
+setInterval(update_times,500);
+
+
+
+
+//部署方法
+//部署方法
+// var html='<b>插入一段html</b>';//声明js变量
+// document.getElementById('myId').innerHTML = html;//找到id为'myId'的标签内插入html变量的值
+// document.getElementById('myId').innerText = html;//找到id为'myId'的标签替换它的内容为html的值
+// <td><script language="javascript">document.write(name);</script></td>
+// <td><script language="javascript">document.write(age);</script></td>
+</6></hourlist.length>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/12/班车时刻表/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Dong">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/doge.jpeg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Dong's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Dong's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/12/班车时刻表/" itemprop="url">
+                  班车时刻表
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-12T19:54:31+00:00">
+                2017-01-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/12/班车时刻表/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/12/班车时刻表/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="班车时刻表"><a href="#班车时刻表" class="headerlink" title="班车时刻表"></a>班车时刻表</h3><hr>
+<p><div class="display_inline"><div class="showtime_title" id="title0">学校-金科路</div><div class="showtime_content" id="content0">12:29</div></div><div class="display_inline"><div class="showtime_title" id="title1">学校-金科路</div><div class="showtime_content" id="content1">12:29</div></div><div class="display_inline"><div class="showtime_title" id="title2">学校-金科路</div><div class="showtime_content" id="content2">12:29</div></div><div class="display_inline"><div class="showtime_title" id="title3">学校-金科路</div><div class="showtime_content" id="content3">12:29</div></div></p>
+<script type="text/javascript" src="/js/src/_my/show_time.js"></script>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">工作日<br>(去)</th>
+<th style="text-align:center">工作日<br>(返)</th>
+<th style="text-align:center">节假日<br>（去）</th>
+<th style="text-align:center">节假日<br>（返）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">6:55</td>
+<td style="text-align:center">7:15</td>
+<td style="text-align:center">6:55</td>
+<td style="text-align:center">7:15</td>
+</tr>
+<tr>
+<td style="text-align:center">7:20</td>
+<td style="text-align:center">7:40</td>
+<td style="text-align:center">7:50</td>
+<td style="text-align:center">8:10</td>
+</tr>
+<tr>
+<td style="text-align:center">7:40</td>
+<td style="text-align:center">8:00</td>
+<td style="text-align:center">8:40</td>
+<td style="text-align:center">9:00</td>
+</tr>
+<tr>
+<td style="text-align:center">8:00</td>
+<td style="text-align:center">8:20</td>
+<td style="text-align:center">9:20</td>
+<td style="text-align:center">9:40</td>
+</tr>
+<tr>
+<td style="text-align:center">8:20</td>
+<td style="text-align:center">8:40</td>
+<td style="text-align:center">10:00</td>
+<td style="text-align:center">10:20</td>
+</tr>
+<tr>
+<td style="text-align:center">8:40</td>
+<td style="text-align:center">9:00</td>
+<td style="text-align:center">11:00</td>
+<td style="text-align:center">11:20</td>
+</tr>
+<tr>
+<td style="text-align:center">9:00</td>
+<td style="text-align:center">9:20</td>
+<td style="text-align:center">12:00</td>
+<td style="text-align:center">12:20</td>
+</tr>
+<tr>
+<td style="text-align:center">9:20</td>
+<td style="text-align:center">9:40</td>
+<td style="text-align:center">13:00</td>
+<td style="text-align:center">13:20</td>
+</tr>
+<tr>
+<td style="text-align:center">10:00</td>
+<td style="text-align:center">10:20</td>
+<td style="text-align:center">14:00</td>
+<td style="text-align:center">14:20</td>
+</tr>
+<tr>
+<td style="text-align:center">11:00</td>
+<td style="text-align:center">11:20</td>
+<td style="text-align:center">15:00</td>
+<td style="text-align:center">15:20</td>
+</tr>
+<tr>
+<td style="text-align:center">12:00</td>
+<td style="text-align:center">12:20</td>
+<td style="text-align:center">15:40</td>
+<td style="text-align:center">16:00</td>
+</tr>
+<tr>
+<td style="text-align:center">13:00</td>
+<td style="text-align:center">13:20</td>
+<td style="text-align:center">16:20</td>
+<td style="text-align:center">16:40</td>
+</tr>
+<tr>
+<td style="text-align:center">14:00</td>
+<td style="text-align:center">14:20</td>
+<td style="text-align:center">17:00</td>
+<td style="text-align:center">17:20</td>
+</tr>
+<tr>
+<td style="text-align:center">15:00</td>
+<td style="text-align:center">15:20</td>
+<td style="text-align:center">17:40</td>
+<td style="text-align:center">18:01</td>
+</tr>
+<tr>
+<td style="text-align:center">15:20</td>
+<td style="text-align:center">15:40</td>
+<td style="text-align:center">18:20</td>
+<td style="text-align:center">18:40</td>
+</tr>
+<tr>
+<td style="text-align:center">15:40</td>
+<td style="text-align:center">16:00</td>
+<td style="text-align:center">19:00</td>
+<td style="text-align:center">19:20</td>
+</tr>
+<tr>
+<td style="text-align:center">16:00</td>
+<td style="text-align:center">16:20</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">16:20</td>
+<td style="text-align:center">16:40</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">16:40</td>
+<td style="text-align:center">17:00</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">17:00</td>
+<td style="text-align:center">17:20</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">17:20</td>
+<td style="text-align:center">17:40</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">17:40</td>
+<td style="text-align:center">18:01</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">18:01</td>
+<td style="text-align:center">18:21</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">18:20</td>
+<td style="text-align:center">18:40</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">18:40</td>
+<td style="text-align:center">19:00</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">19:00</td>
+<td style="text-align:center">19:20</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="校内班车"><a href="#校内班车" class="headerlink" title="校内班车"></a>校内班车</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">工作日<br>(去)</th>
+<th style="text-align:center">工作日<br>(返)</th>
+<th style="text-align:center">节假日<br>（去）</th>
+<th style="text-align:center">节假日<br>（返）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">7:30 <br>（地铁站发车,随到即开,预计20分钟）</td>
+<td style="text-align:center">7:30</td>
+<td style="text-align:center">9:15</td>
+<td style="text-align:center">8:30</td>
+</tr>
+<tr>
+<td style="text-align:center">7:40<br>（同上）</td>
+<td style="text-align:center">7:40</td>
+<td style="text-align:center">11:00</td>
+<td style="text-align:center">9:30</td>
+</tr>
+<tr>
+<td style="text-align:center">8:30<br>（同上）</td>
+<td style="text-align:center">8:30</td>
+<td style="text-align:center">17:00</td>
+<td style="text-align:center">11:15</td>
+</tr>
+<tr>
+<td style="text-align:center">9:25</td>
+<td style="text-align:center">9:45</td>
+<td style="text-align:center">17:30</td>
+<td style="text-align:center">19:30<br>（周日-金科路，发车）</td>
+</tr>
+<tr>
+<td style="text-align:center">10:25</td>
+<td style="text-align:center">10:45</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">20:30<br>（同上）</td>
+</tr>
+<tr>
+<td style="text-align:center">11:05</td>
+<td style="text-align:center">11:25</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">21:30<br>（同上）</td>
+</tr>
+<tr>
+<td style="text-align:center">12:25</td>
+<td style="text-align:center">12:45</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">13:25</td>
+<td style="text-align:center">13:45</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">14:25</td>
+<td style="text-align:center">14:45</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">15:25</td>
+<td style="text-align:center">15:45</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">16:25</td>
+<td style="text-align:center">16:25<br>（环科路发车，随到即开，预计20分钟）</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">17:15</td>
+<td style="text-align:center">17:15<br>（同上）</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">17:45</td>
+<td style="text-align:center">17:45<br>（同上）</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">18:45</td>
+<td style="text-align:center">18:45<br>（同上）</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">19:40</td>
+<td style="text-align:center">19:45<br>（同上）</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>data from zhouzean.tk/bus</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/10/班车时刻表/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -339,6 +975,8 @@
         
           
             <h3 id="班车时刻表"><a href="#班车时刻表" class="headerlink" title="班车时刻表"></a>班车时刻表</h3><hr>
+<div class="display_inline"><br>    <div class="showtime_title" id="title0">学校-金科路</div><br>    <div class="showtime_content" id="content0">12:29</div><br></div><br><div class="display_inline"><br>    <div class="showtime_title" id="title1">学校-金科路</div><br>    <div class="showtime_content" id="content1">12:29</div><br></div><br><div class="display_inline"><br>    <div class="showtime_title" id="title2">学校-金科路</div><br>    <div class="showtime_content" id="content2">12:29</div><br></div><br><div class="display_inline"><br>    <div class="showtime_title" id="title3">学校-金科路</div><br>    <div class="showtime_content" id="content3">12:29</div><br></div>
+
 <h4 id="1057"><a href="#1057" class="headerlink" title="1057"></a>1057</h4><table>
 <thead>
 <tr>
@@ -951,7 +1589,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

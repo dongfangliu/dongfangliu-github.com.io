@@ -84,13 +84,22 @@
 
 
 
+<meta name="description" content="前记
+这一周刚刚开始用HEXO做博客，学着用了markdown。前两天弄了一个学校的班车时刻表，就是用markdown写一个表格，一列有很多很多的时间数据，打着打着就头晕了……于是小东花了一点时间，写了一个md表格制式生成器，这两天整理完再发到github。那表格有了，我又想实现一个漂亮的计时的功能（代码就换下一篇再说）只好去琢磨怎么再hexo中插入css和js文件，于是就有了这篇博文。
+关于ma">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何在hexo中插入css与js">
 <meta property="og:url" content="http://yoursite.com/2017/01/12/如何在hexo中插入css与js/index.html">
 <meta property="og:site_name" content="Dong's blog">
-<meta property="og:updated_time" content="2017-01-12T21:28:45.159Z">
+<meta property="og:description" content="前记
+这一周刚刚开始用HEXO做博客，学着用了markdown。前两天弄了一个学校的班车时刻表，就是用markdown写一个表格，一列有很多很多的时间数据，打着打着就头晕了……于是小东花了一点时间，写了一个md表格制式生成器，这两天整理完再发到github。那表格有了，我又想实现一个漂亮的计时的功能（代码就换下一篇再说）只好去琢磨怎么再hexo中插入css和js文件，于是就有了这篇博文。
+关于ma">
+<meta property="og:updated_time" content="2017-01-13T10:57:00.883Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何在hexo中插入css与js">
+<meta name="twitter:description" content="前记
+这一周刚刚开始用HEXO做博客，学着用了markdown。前两天弄了一个学校的班车时刻表，就是用markdown写一个表格，一列有很多很多的时间数据，打着打着就头晕了……于是小东花了一点时间，写了一个md表格制式生成器，这两天整理完再发到github。那表格有了，我又想实现一个漂亮的计时的功能（代码就换下一篇再说）只好去琢磨怎么再hexo中插入css和js文件，于是就有了这篇博文。
+关于ma">
 
 
 
@@ -364,7 +373,70 @@
       
 
       
-        
+        <h3 id="前记"><a href="#前记" class="headerlink" title="前记"></a>前记</h3><blockquote>
+<h4 id="这一周刚刚开始用HEXO做博客，学着用了markdown。前两天弄了一个学校的班车时刻表，就是用markdown写一个表格，一列有很多很多的时间数据，打着打着就头晕了……于是小东花了一点时间，写了一个md表格制式生成器，这两天整理完再发到github。那表格有了，我又想实现一个漂亮的计时的功能（代码就换下一篇再说）只好去琢磨怎么再hexo中插入css和js文件，于是就有了这篇博文。"><a href="#这一周刚刚开始用HEXO做博客，学着用了markdown。前两天弄了一个学校的班车时刻表，就是用markdown写一个表格，一列有很多很多的时间数据，打着打着就头晕了……于是小东花了一点时间，写了一个md表格制式生成器，这两天整理完再发到github。那表格有了，我又想实现一个漂亮的计时的功能（代码就换下一篇再说）只好去琢磨怎么再hexo中插入css和js文件，于是就有了这篇博文。" class="headerlink" title="这一周刚刚开始用HEXO做博客，学着用了markdown。前两天弄了一个学校的班车时刻表，就是用markdown写一个表格，一列有很多很多的时间数据，打着打着就头晕了……于是小东花了一点时间，写了一个md表格制式生成器，这两天整理完再发到github。那表格有了，我又想实现一个漂亮的计时的功能（代码就换下一篇再说）只好去琢磨怎么再hexo中插入css和js文件，于是就有了这篇博文。"></a>这一周刚刚开始用HEXO做博客，学着用了markdown。前两天弄了一个学校的班车时刻表，就是用markdown写一个表格，一列有很多很多的时间数据，打着打着就头晕了……于是小东花了一点时间，写了一个md表格制式生成器，这两天整理完再发到github。<br>那表格有了，我又想实现一个漂亮的计时的功能（代码就换下一篇再说）只好去琢磨怎么再hexo中插入css和js文件，于是就有了这篇博文。</h4></blockquote>
+<h4 id="关于markdown"><a href="#关于markdown" class="headerlink" title="关于markdown"></a>关于markdown</h4><blockquote>
+<ol>
+<li><h6 id="markdown是什么？"><a href="#markdown是什么？" class="headerlink" title="markdown是什么？"></a>markdown是什么？</h6></li>
+<li><h6 id="markdown和html标签"><a href="#markdown和html标签" class="headerlink" title="markdown和html标签"></a>markdown和html标签</h6></li>
+<li><h6 id="hexo中的md语法应用"><a href="#hexo中的md语法应用" class="headerlink" title="hexo中的md语法应用"></a>hexo中的md语法应用</h6></li>
+</ol>
+</blockquote>
+<h4 id="md是什么？"><a href="#md是什么？" class="headerlink" title="md是什么？"></a>md是什么？</h4><p>markdown首先是一种语法。<br>它提供了很多的标记符号（例如#,*,&gt;等等），赋予这些符号功能性含义(比如标题，引用……），只要把这些符号有序地写入，就能交由解析程序生成想要的html标签式的网页文章。</p>
+<p>举个例子（引用）<br>书写   </p>
+<pre><code>&gt; 我是一条大大的咸鱼，深深地埋在罐头之中～
+</code></pre><p>效果</p>
+<blockquote>
+<p>我是一条大大的咸鱼，深深地埋在罐头之中～</p>
+</blockquote>
+<h4 id="markdown和html标签-1"><a href="#markdown和html标签-1" class="headerlink" title="markdown和html标签"></a>markdown和html标签</h4><blockquote>
+<p>HTML 的区段（行内）标签如  <code>&lt;span&gt;</code>  、  <code>&lt;cite&gt;</code>  可以在 Markdown 的段落、列表或是标题里随意使用。依照个人习惯，甚至可以不用 Markdown 格式，而直接采用HTML标签来格式化。举例说明：如果比较喜欢 HTML 的  <code>&lt;a&gt;</code>  或  <code>&lt;img&gt;</code>  标签，可以直接使用这些标签，而不用 Markdown 提供的链接或是图像标签语法。</p>
+</blockquote>
+<p>也就是说，md语法和html标签兼容，因为md本身经过解析后就会成为html制式。<br>于是我们在hexo插入js代码和css样式看到了希望。</p>
+<h4 id="hexo中的md语法应用-1"><a href="#hexo中的md语法应用-1" class="headerlink" title="hexo中的md语法应用"></a>hexo中的md语法应用</h4><h6 id="纯md"><a href="#纯md" class="headerlink" title="纯md"></a>纯md</h6><pre><code>#### 关于markdown //四级标题
+&gt; 1. ###### markdown是什么？ //六级标题
+&gt; 2. ###### markdown和html标签
+&gt; 3. ###### hexo中的md语法应用
+</code></pre><h6 id="md-html"><a href="#md-html" class="headerlink" title="md+html"></a>md+html</h6><pre><code>&gt; 第一行&lt;br&gt;第二行
+</code></pre><p>效果</p>
+<blockquote>
+<p>第一行<br>第二行</p>
+</blockquote>
+<hr>
+<h4 id="如何插入css呢？"><a href="#如何插入css呢？" class="headerlink" title="如何插入css呢？"></a>如何插入css呢？</h4><ol>
+<li>打开  <code>_themes/(主题名)/source/css_</code>  </li>
+<li>比如我的就是  <code>themes/next/source/css</code>  </li>
+<li>创建一个文件夹存放自己的css  <code>themes/next/source/css/_my</code>  </li>
+<li>打开  <code>themes/next/source/css/main.styl</code>  </li>
+<li>添加  <code>@import &quot;_my/我的css.css&quot;;</code>  </li>
+</ol>
+<p>这样，在加载网页的时候主题文件加载时就会顺便把我们的css载入进去。</p>
+<blockquote>
+<h6 id="Note-自己的css不要和主题的css重名。"><a href="#Note-自己的css不要和主题的css重名。" class="headerlink" title="Note:自己的css不要和主题的css重名。"></a>Note:自己的css不要和主题的css重名。</h6></blockquote>
+<hr>
+<h4 id="如何插入js呢？"><a href="#如何插入js呢？" class="headerlink" title="如何插入js呢？"></a>如何插入js呢？</h4><blockquote>
+<h6 id="希望本菜鸟能给其他菜鸟简洁有力的帮助。根据我昨晚的4个小时的搜索，网络上其实是没有现行的方法来解决这一问题的。"><a href="#希望本菜鸟能给其他菜鸟简洁有力的帮助。根据我昨晚的4个小时的搜索，网络上其实是没有现行的方法来解决这一问题的。" class="headerlink" title="希望本菜鸟能给其他菜鸟简洁有力的帮助。根据我昨晚的4个小时的搜索，网络上其实是没有现行的方法来解决这一问题的。"></a>希望本菜鸟能给其他菜鸟简洁有力的帮助。根据我昨晚的4个小时的搜索，网络上其实是没有现行的方法来解决这一问题的。</h6></blockquote>
+<ul>
+<li>不用尝试去看什么hexo官方的<a href="https://hexo.io/zh-cn/docs/helpers.html" target="_blank" rel="external">辅助函数</a>用法了。那是添加到文章模板里面的，除非你想每篇文章都启用一个js.</li>
+<li>在source 中加入的自定义的文件和文件夹,  <code>hexo g</code>  之后都会在  <code>public</code>  文件夹中生成对应的文件及文件夹。</li>
+</ul>
+<p>我的方法即是利用第二点，经过小东两个多小时的血汗测试。得出以下结论：</p>
+<ol>
+<li>所有原生的文件夹比如  <code>images</code>  ,  <code>js/src</code>  等等在经过  <code>hexo   d</code>  之后,通过域名访问都只能访问该目录下单个文件，不能访问其子文件夹，也就是自定义的文件夹在上传到github之后不能通过网址直接打开。<br>创建子文件夹存放代码的方案，废了。</li>
+<li>存放在  <code>source</code>  等直接目录下的js代码，经过  <code>hexo g</code>  之后都会在某些部分出现乱码，所以这一方案也废了。也许可以写一个程序，比如在代码里面加一些斜杠，使generate过程中不翻译为乱码。</li>
+<li>放在  <code>public</code>  文件夹中的文件都（默认为加载好的）会上传到github上用来部署网页。</li>
+</ol>
+<p>所以，我的方案是</p>
+<ol>
+<li>代码直接放在public/images/下，不放再source/images/下</li>
+<li>对应 博客.md中 加入  <code>&lt;script&gt;</code>   src 指向  <code>/images/my_code.js</code>  </li>
+<li><code>hexo g</code><br><code>hexo d</code>  </li>
+<li>这样就大功告成，本地上和网络上js代码都能成功跑起来！  </li>
+</ol>
+<blockquote>
+<h6 id="穷人只能瞎折腾，有钱不如买主机。"><a href="#穷人只能瞎折腾，有钱不如买主机。" class="headerlink" title="穷人只能瞎折腾，有钱不如买主机。"></a>穷人只能瞎折腾，有钱不如买主机。</h6></blockquote>
+<p><strong>_config.yml目录下有一个code_dir,可以设置代码存放位置,经过我设置到js/src/_my,用官方的<code>inclued_code</code>标签并没有什么用处。官方在这里的使用也没有清楚说明，弄清楚的朋友请留言告知！<strong></strong></strong></p>
+
       
     </div>
 
@@ -390,8 +462,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/12/班车时刻表/" rel="next" title="班车时刻表">
-                <i class="fa fa-chevron-left"></i> 班车时刻表
+              <a href="/2016/12/31/小记16/" rel="next" title="小记16">
+                <i class="fa fa-chevron-left"></i> 小记16
               </a>
             
           </div>
@@ -399,6 +471,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/13/班车时刻表/" rel="prev" title="班车时刻表">
+                班车时刻表 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -449,8 +525,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/doge.jpeg"
@@ -492,6 +577,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前记"><span class="nav-number">1.</span> <span class="nav-text">前记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#这一周刚刚开始用HEXO做博客，学着用了markdown。前两天弄了一个学校的班车时刻表，就是用markdown写一个表格，一列有很多很多的时间数据，打着打着就头晕了……于是小东花了一点时间，写了一个md表格制式生成器，这两天整理完再发到github。那表格有了，我又想实现一个漂亮的计时的功能（代码就换下一篇再说）只好去琢磨怎么再hexo中插入css和js文件，于是就有了这篇博文。"><span class="nav-number">1.1.</span> <span class="nav-text">这一周刚刚开始用HEXO做博客，学着用了markdown。前两天弄了一个学校的班车时刻表，就是用markdown写一个表格，一列有很多很多的时间数据，打着打着就头晕了……于是小东花了一点时间，写了一个md表格制式生成器，这两天整理完再发到github。那表格有了，我又想实现一个漂亮的计时的功能（代码就换下一篇再说）只好去琢磨怎么再hexo中插入css和js文件，于是就有了这篇博文。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于markdown"><span class="nav-number">1.2.</span> <span class="nav-text">关于markdown</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#markdown是什么？"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">markdown是什么？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#markdown和html标签"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">markdown和html标签</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#hexo中的md语法应用"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">hexo中的md语法应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#md是什么？"><span class="nav-number">1.3.</span> <span class="nav-text">md是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#markdown和html标签-1"><span class="nav-number">1.4.</span> <span class="nav-text">markdown和html标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo中的md语法应用-1"><span class="nav-number">1.5.</span> <span class="nav-text">hexo中的md语法应用</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#纯md"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">纯md</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#md-html"><span class="nav-number">1.5.0.2.</span> <span class="nav-text">md+html</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何插入css呢？"><span class="nav-number">1.6.</span> <span class="nav-text">如何插入css呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Note-自己的css不要和主题的css重名。"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">Note:自己的css不要和主题的css重名。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何插入js呢？"><span class="nav-number">1.7.</span> <span class="nav-text">如何插入js呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#希望本菜鸟能给其他菜鸟简洁有力的帮助。根据我昨晚的4个小时的搜索，网络上其实是没有现行的方法来解决这一问题的。"><span class="nav-number">1.7.0.1.</span> <span class="nav-text">希望本菜鸟能给其他菜鸟简洁有力的帮助。根据我昨晚的4个小时的搜索，网络上其实是没有现行的方法来解决这一问题的。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#穷人只能瞎折腾，有钱不如买主机。"><span class="nav-number">1.7.0.2.</span> <span class="nav-text">穷人只能瞎折腾，有钱不如买主机。</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
